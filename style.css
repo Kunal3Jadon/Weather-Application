@@ -180,4 +180,64 @@ h1 {
     max-width: 70px;
     margin: 5px 0 -12px 0;
 }
+@media (max-width: 1400px) {
+    .cards {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 1200px) {
+    .wt-inpt {
+        margin-left: 30%;
+    }
+
+    .wt-inpt h3 {
+        margin-left: 0%;
+    }
+
+    .cards .card {
+        width: calc(100% / 3 - 15px);
+    }
+}
+
+@media (max-width: 950px) {
+    .wt-inpt {
+        margin-left: 30%;
+    }
+
+    .wt-inpt h3 {
+        margin-left: 0%;
+    }
+
+    .cards .card {
+        width: calc(100% / 2 - 10px);
+    }
+}
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 1.45rem;
+        padding: 16px 0;
+    }
+
+    .wt-inpt {
+        margin-left: 5%;
+        width: 100%;
+    }
+
+    .current-weather {
+        width: 100%;
+        margin-left: 1%;
+        margin-top: 3%;
+    }
+
+    .days-want {
+        width: 50%;
+        margin-left: 2%;
+    }
+
+    .wt-inpt h3 {
+        margin-left: 0%;
+    }
+}
 
