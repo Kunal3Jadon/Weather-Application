@@ -6,6 +6,16 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
+
+:root {
+    --background: rgba(255, 255, 255, 0.1);
+    --box_shadow: rgba(3, 46, 87, 0.3);
+}
+
+body {
+    background-image: url('ba2.jpg');
+    background-size: cover;
+}
 h1 {
     font-size: 1.75rem;
     text-align: center;
