@@ -69,3 +69,36 @@ const getCityCoordinates = () => {
 }
 
 searchButton.addEventListener("click", getCityCoordinates);
+const searchButton = document.querySelector(".search-btn");
+const locationButton = document.querySelector(".location-btn");
+const extra = document.querySelector(".days-want");
+const getUserCoordinates = () => {
+    forecast.style.display = "none";
+    weather.style.display = "flex";
+    weather.style.flexDirection = "column";
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            const { latitude, longitude } = position.coords;
+            const API_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
+            fetch(API_URL).then(response => response.json()).then(data => {
+                const { name } = data[0];
+                getWeatherDetails(name, latitude, longitude);
+            }).catch(() => {
+                alert("An error occurred while fetching the city name!");
+            });
+        },
+        error => {
+            if (error.code === error.PERMISSION_DENIED) {
+                alert("Geolocation request denied. Please reset location permission to grant access again.");
+            } else {
+                alert("Geolocation request error. Please reset location permission.");
+            }
+        });
+}
+const show = () => {
+    forecast.style.display = "flex";
+    forecast.style.flexDirection = "column";
+}
+locationButton.addEventListener("click", getUserCoordinates);
+cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
+extra.addEventListener("click", show);
