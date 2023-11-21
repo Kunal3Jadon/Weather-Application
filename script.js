@@ -4,6 +4,9 @@ const weather = document.querySelector(".weather-data");
 const API_KEY = "d1845658f92b31c64bd94f06f7188c9c";
 const currentWeatherDiv = document.querySelector(".current-weather");
 const weatherCardsDiv = document.querySelector(".cards");
+const searchButton = document.querySelector(".search-btn");
+const locationButton = document.querySelector(".location-btn");
+const extra = document.querySelector(".days-want");
 const createWeatherCard = (cityName, weatherItem, index) => {
     if (index === 0) {
         return `<div class="details">
@@ -68,10 +71,6 @@ const getCityCoordinates = () => {
     });
 }
 
-searchButton.addEventListener("click", getCityCoordinates);
-const searchButton = document.querySelector(".search-btn");
-const locationButton = document.querySelector(".location-btn");
-const extra = document.querySelector(".days-want");
 const getUserCoordinates = () => {
     forecast.style.display = "none";
     weather.style.display = "flex";
@@ -102,3 +101,4 @@ const show = () => {
 locationButton.addEventListener("click", getUserCoordinates);
 cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
 extra.addEventListener("click", show);
+searchButton.addEventListener("click", getCityCoordinates);
